@@ -17,6 +17,62 @@ Calcula dónde estará un robot (sus coordenadas finales) que se encuentra en un
 
 ### Ejemplos de Movimientos y Salidas:
 
+# Parte 1
+
+## Crear una versión del programa ¿Dónde está R2D2? orientado a objetos
+
+### Clase `Robot`
+La clase `Robot` debe tener 4 propiedades:
+- `nombre`
+- `posX`
+- `posY`
+- `direccion`
+
+También tendrá un comportamiento por medio de 3 métodos:
+- `mover(array)`
+- `obtenerPosicion()`
+- `obtenerDireccion()`
+
+### Métodos
+
+#### Método `mover(array)`
+- Debe recibir un array de elementos enteros y no retornará nada, ya que los cambios quedarán almacenados en las propiedades del mismo.
+
+#### Método `obtenerDireccion()`
+- No recibe parámetros y retorna una cadena de caracteres con la dirección `PositiveX`, `NegativeX`, `PositiveY` o `NegativeY`.
+- (Posible mejora con enum class Enum classes).
+
+#### Método `obtenerPosicion()`
+- Debe devolver la posición. Ejemplo: `(10, -5)`.
+
+#### Método `toString()`
+- Describe la posición actual del robot. Ejemplo: `R2D2 está en (10, -5) PositiveX`.
+
+### Inicialización de la Clase `Robot`
+- Un objeto de la clase `Robot` debe inicializarse siempre en la posición `(0, 0)` y la dirección eje Y positivo (hacia arriba) `PositiveY` cuando se instancia.
+- En esta versión, ya no va a moverse siempre desde la posición `(0,0)`, sino que lo hará desde la última posición y dirección donde se quedó al realizar su último movimiento.
+
+### Movimientos
+En este programa, vamos a realizar los mismos movimientos, pero el robot comenzará cada movimiento en la posición final después de realizar el movimiento anterior.
+
+En el `main` debes crear un objeto de `Robot` (o una variable de tipo `Robot`) con el nombre `R2D2`. El nombre de la variable que utilices para crearlo puede ser `robot1`.
+
+La clase `Robot` debe obligar a introducir un nombre que no esté vacío.
+
+Crea los movimientos en un array de arrays y recórralos para realizar en cada iteración los movimientos del robot y mostrar la posición del mismo al finalizar cada uno. En cada iteración del bucle llamaremos al método `mover()` y mostraremos por consola el contenido del robot, es decir, el método `toString()`.
+
+### Ejemplo de Estructura de Movimientos
+
+```python
+[
+   [1, -5, 0, -9],
+   [3, 3, 5, 6, 1, 0, 0, -7],
+   [2, 1, 0, -1, 1, 1, -4],
+   [],
+   [3, 5]
+]
+
+
 ```plaintext
 Movimientos:
 [10, 5, -2]
@@ -24,6 +80,8 @@ Movimientos:
 []
 [-10, -5, 2]
 [-10, -5, 2, 4, -8]
+
+
 
 Salidas:
 x: -5, y: 12, direction: POSITIVEX
