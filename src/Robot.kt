@@ -13,12 +13,23 @@ class Robot(private val nombre: String) {
     fun mover(camino: Array<Int>){
         for(pasos in camino){
             when(direccion){
-                Direccion.POSITIVEY -> posY += pasos
-                Direccion.NEGATIVEX -> posX -= pasos
-                Direccion.NEGATIVEY -> posY -= pasos
-                Direccion.POSITIVEX -> posX += pasos
+                Direccion.POSITIVEY -> {
+                    posY += pasos
+                    obtenerDireccion()
+                }
+                Direccion.NEGATIVEX -> {
+                    posX -= pasos
+                    obtenerDireccion()
+                }
+                Direccion.NEGATIVEY -> {
+                    posY -= pasos
+                    obtenerDireccion()
+                }
+                Direccion.POSITIVEX -> {
+                    posX += pasos
+                    obtenerDireccion()
+                }
             }
-            obtenerDireccion()
         }
     }
 
@@ -48,6 +59,6 @@ class Robot(private val nombre: String) {
     }
 
     override fun toString(): String {
-        return "$nombre está en ${obtenerPosicion()}, ${obtenerDireccion()}"
+        return "$nombre está en ${obtenerPosicion()}, $direccion"
     }
 }
